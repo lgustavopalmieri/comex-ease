@@ -1,0 +1,8 @@
+{
+  "database": {
+    "url": "://root:root@localhost:3306/comex-test"
+  },
+  "server": {
+    "port": "5000"
+  }
+}

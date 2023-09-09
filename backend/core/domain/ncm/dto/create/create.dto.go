@@ -6,6 +6,7 @@ import (
 )
 
 type CreateNcmInputDto struct {
+	ID          string `json:"id"`
 	Code        string `json:"code"`
 	Description string `json:"description"`
 	StartDate   string `json:"start_date"`

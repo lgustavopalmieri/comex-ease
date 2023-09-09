@@ -1,0 +1,17 @@
+docker compose exec -it comex-test
+
+mysql -uroot -p comex-test
+
+show tables;
+
+select * from products;
+
+{
+    "code": "Ncm code 01",
+    "description": "Ncm description",
+    "start_date": "ncm start date",
+    "end_date": "ncm end date",
+    "act_type": "Ncm act type",
+    "act_number": "Ncm act number",
+    "act_year": "Ncm act year"
+}
