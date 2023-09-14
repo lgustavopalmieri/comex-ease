@@ -1,10 +1,10 @@
-docker compose exec -it comex-test
+docker compose exec -it comex-test bash
 
 mysql -uroot -p comex-test
 
 show tables;
 
-select * from products;
+select * from ncms;
 
 {
     "code": "Ncm code 01",

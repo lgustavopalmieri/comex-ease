@@ -1,15 +1,39 @@
-version: '3'
+version: "3"
 
 services:
+  comex-ease-api:
+    build:
+      context: .
+    container_name: comex-ease-api
+    networks:
+      - comex-ease-network
+    volumes:
+      - .:/usr/src/app
+    tty: true
+    ports:
+      - "5500:5500"
+    depends_on:
+      - comex-test
+    env_file:
+      - .env
+
   comex-test:
     image: mysql:5.7
     container_name: comex-test
     restart: always
     platform: linux/amd64
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: comex-test
-      MYSQL_PASSWORD: root
+      MYSQL_RAM_SIZE: 512M
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - 3306:3306
-      
+    networks:
+      - comex-ease-network
+    env_file:
+      - .env
+
+networks:
+  comex-ease-network:
+    driver: bridge
